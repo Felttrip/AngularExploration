@@ -64,3 +64,34 @@ Those two small changes will create a page that will auto filter the items in th
 without any further code.
 
 ## Two-way Data Binding
+
+The core to Angulars magic is it's two-way data binding. Without going into specifics,
+AngularJS will keep all of a variable in sync across the entire application.  This is
+what makes the previous example work. When the `<input>` tag is updated, the `ng-model`
+called `query` is also updated with the contents of the `<input>`.  When `query` has been
+update this applies across the entire page causing the `filter` property to now have a
+string to filter against.  This is then applied to the `ng-repeat` directive causing the
+items that are shown to be filtered by the given filter.
+
+## Routing
+
+Having a router in the front end of an application is really interesting and I like it a lot.
+By allowing the front end of the application to handle the routes this gives the developer
+the freedom to build the server side of the application purely as a data feed.  This is
+especially useful if there are plans to make an api for the application because it will
+already exist! The syntax for writing a router is super simple and encourages an MVC
+centric architecture.
+```
+$routeProvider.
+  when('/phones', {
+    templateUrl: 'partials/phone-list.html',
+    controller: 'PhoneListCtrl'
+  }).
+  when('/phones/:phoneId', {
+    templateUrl: 'partials/phone-detail.html',
+    controller: 'PhoneDetailCtrl'
+  }).
+  otherwise({
+    redirectTo: '/phones'
+  });
+  ```
