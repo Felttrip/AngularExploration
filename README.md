@@ -95,3 +95,8 @@ $routeProvider.
     redirectTo: '/phones'
   });
   ```
+
+## Other Features
+AngularJS has tons of additional features. A few of the ones I used were Event Handlers,
+Custom Services and Animations.  These features add additional functionality and enable
+writing clean readable code, which can be a daunting task for the front end.
